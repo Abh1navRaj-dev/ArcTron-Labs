@@ -193,12 +193,18 @@ body{
     height: 100%;
     object-fit: cover;
     z-index: 0;
+    opacity: 0;
+    transition: opacity 1.4s ease;
+}
+
+.hero-video.is-active{
+    opacity: 1;
 }
 
 .hero-overlay{
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.55) 100%);
     z-index: 1;
 }
 
@@ -212,12 +218,23 @@ body{
     font-size: 5rem;
     max-width: 900px;
     margin-top: 120px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFadeUp 1.2s ease forwards;
 }
 .hero-subheading{
     font-family: var(--font-sub-heading-1);
     color:white;
     font-size: 1.5rem;
     opacity: 75%;
+    margin-top: 16px;
+}
+
+@keyframes heroFadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 .hero::after{
     content: "";
